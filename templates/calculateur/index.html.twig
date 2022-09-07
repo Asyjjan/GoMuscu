@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/calculator.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Calculateur{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.sexe) }}
+    {{ form_row(form.taille) }}
+    {{ form_row(form.poids) }}
+    {{ form_row(form.age) }}
+    <div class="slidecontainer">
+        {{ form_row(form.coef, {id: 'coef'}) }}
+        <p>Valeur : <b><span id="value"></span></b></p>
+    </div>
+    {{ form_rest(form) }}
+
+    {% if calculDone == true %}
+        <div class="alert alert-warning">
+            <h3>Résultat</h3>
+            Votre métabolisme de base est <b>{{ moy | round }}</b> kcal
+        </div>
+        <div class="alert alert-danger">
+            Votre besoin calorique pour vous maintenir est <b>{{ kcalNeeded | round }}</b> kcal
+        </div>
+    {% endif %}
+
+    <script>
+        var slider = document.getElementById("coef");
+        var output = document.getElementById("value");
+        output.innerHTML = slider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acceuil{% endblock %}
+
+{% block body %}
+    <div class="card text-white bg-dark mb-3 text-center" style="border-radius: 20px; width: 45rem; height: 40rem;">
+        <img src="{{ asset('img/bvn.png') }}" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+        <div class="card-body">
+            <p class="card-text pt-3" style="font-size: 20px">
+                Tu y retrouveras toutes nos informations mais également un calculateur de calories qui nous a été très demandé !
+            </p>
+            <p class="card-text" style="font-size: 20px">
+                Tu peux également nous retrouver sur notre plateforme originale (Discord)
+                mais nous nous diversifions également sur d'autres plateformes tel que Instagram ou Twitter
+            </p>
+            <div style="position: absolute; bottom: 20px; width: 100%;">
+                <button type="button" class="btn btn-outline-info btn-lg">
+                    <i class="bi bi-discord"></i>
+                    Discord
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-lg">
+                    <i class="bi bi-instagram"></i>
+                    Instagram
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-lg">
+                    <i class="bi bi-twitter"></i>
+                    Twitter
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

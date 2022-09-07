@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}L'Equipe{% endblock %}
+
+{% block body %}
+    <div class="d-flex">
+        {% for staff in staffs %}
+        <div class="card text-white bg-dark w-100 m-3" style="position: relative; min-height: 500px; height: fit-content">
+            <div class="card-body mx-auto">
+                <img src="{{ asset(staff.pdp) }}" style="border-radius: 80px; height: 100px; width: 100px">
+                <h5 class="card-title text-warning m-2">{{ staff.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted m-2">{{ staff.rank }}</h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-white bg-dark">{{ staff.text1 }}</li>
+                    <li class="list-group-item text-white bg-dark">{{ staff.text2 }}</li>
+                    <li class="list-group-item text-white bg-dark">{{ staff.text3 }}</li>
+                </ul>
+                {% if staff.experience is null %}
+                {% else %}
+                <p class="card-text" style="position: absolute; bottom: 0; margin: 10px"><small class="text-muted">{{ staff.experience }} d'expérience</small></p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

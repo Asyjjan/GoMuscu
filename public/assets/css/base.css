@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+#test{
+    color: #FFFF00;
+    margin-left: 10px;
+}
+#test:hover{
+    color: #F0C60A;
+}
